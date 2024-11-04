@@ -17,12 +17,37 @@ const heading = (
 );
 
 // Functional Component
+// 3 ways for single line code
+// 1
 const HeadingComponent = () => {
-    return <h1>Namaste React Functional Component</h1>;
+    return <h1 className="head">Namaste React Functional Component</h1>;
+}
+//2
+const HeadingComponent1 = () => (
+    <h1>Type 2 heading</h1>
+)
+//3
+const HeadingComponent2 = () => <h1>Type 3</h1>
+
+// We can use normal functions too
+const NormalFunction = function() {
+    return (
+        <h1>Normal Function</h1>
+    )
 }
 
+
+// below piece of code depicts multiline functional component
+// it also depicts nesting of components (Component Composition)
+// JS expression inside JSX
+const number = 1000;
 const MultilineHeadingComponent = () => (
     <div id="container">
+        <HeadingComponent/>
+        {
+            console.log(number)
+        }
+        <h2>{number}</h2>
         <h1 className="heading">Namaste React Multiline functional component</h1>
     </div>
 )
