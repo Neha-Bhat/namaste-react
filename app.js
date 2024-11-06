@@ -68,6 +68,10 @@ const number = 1000;
 const MultilineHeadingComponent = () => (
     <div id="container">
         <HeadingComponent/>
+        {/* also can be written as */}
+        <HeadingComponent></HeadingComponent>
+        {/* also can be written as */}
+        {HeadingComponent()}
         {
             console.log(number)
         }
