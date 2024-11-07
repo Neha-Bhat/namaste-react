@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo {
+    width: 90px;
+    padding: 0 20px;
+}
+
+.nav-container {
+    padding: 10px 0;
+}
+
+.nav-container > ul {
+    display: flex;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.nav-container > ul > li {
+    padding: 10px;
+    list-style-type: none;
+}
+
+.res-card {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 250px;
+    height: auto;
+}
+
+.res-card .food-image {
+    width: 250px;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+}
