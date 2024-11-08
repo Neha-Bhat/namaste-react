@@ -22,8 +22,15 @@ const Header = () => {
 const ResCard = () => {
     return (
         <div className="res-card">
-            <img className="food-image" src="https://vinayasculinarydelights.com/wp-content/uploads/2020/11/IMG_20201128_111556__01-03.jpeg" />
-            <h3>Vidyarthi Bhavan</h3>
+            <img className="food-image" src="https://b.zmtcdn.com/data/pictures/chains/0/18924790/11622036dde0d49cc0dc77cf266983ff_o2_featured_v2.jpg" />
+            <div className="res-info">
+                <h3>Namaste</h3>
+                <span className="rating">4.3</span>
+            </div>
+            
+            <h4>South Indian</h4>
+            <h4>INR 100 for one</h4>
+            <b>26 min</b>
         </div>
     )
 }
@@ -33,6 +40,12 @@ const Body = () => {
         <div className="body">
             <div className="search">Search</div>
             <div className="res-container">
+                <ResCard />
+                <ResCard />
+                <ResCard />
+                <ResCard />
+                <ResCard />
+                <ResCard />
                 <ResCard />
             </div>
         </div>
