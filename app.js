@@ -1523,13 +1523,13 @@ const ResCard = (props) => {
         <div className="res-card">
             <img className="food-image" src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`} />
             <div className="res-info">
-                <h3>{name}</h3>
-                <span className="rating">{avgRating}</span>
+                <h4>{name}</h4>
+                <span className={avgRating >= 4.5 ? 'rating rating-green' : avgRating >= 4.0 ? 'rating rating-yellow' : 'rating rating-red' }>{avgRating}</span>
             </div>
             
-            <h4>{cuisines.toString()}</h4>
-            <h4>{costForTwo}</h4>
-            <b>{sla.slaString}</b>
+            <h5>{cuisines.toString()}</h5>
+            <h5>{costForTwo}</h5>
+            <h5>{sla.slaString}</h5>
         </div>
     )
 }
