@@ -1515,6 +1515,9 @@ const resData = [
             }
         }
 ];
+function truncateText(str, maxLength) {
+  return  str.length > maxLength ? str.slice(0, maxLength)+('...') : str
+}
 const ResCard = (props) => {
     const {resData} = props;
     const {cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla} = resData?.info
