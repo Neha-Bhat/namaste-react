@@ -60,6 +60,10 @@
     border-radius: 10px;
 }
 
+.cuisine {
+    color: gray;
+}
+
 .search {
     padding: 10px;
 }
@@ -67,6 +71,7 @@
 .res-info {
     display: flex;
     justify-content: space-between;
+    padding: 0;
 }
 
 .rating {

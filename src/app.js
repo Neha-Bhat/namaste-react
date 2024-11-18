@@ -1530,7 +1530,7 @@ const ResCard = (props) => {
                 <span className={avgRating >= 4.5 ? 'rating rating-green' : avgRating >= 4.0 ? 'rating rating-yellow' : 'rating rating-red' }>{avgRating}</span>
             </div>
             
-            <h5>{cuisines.toString()}</h5>
+            <h5 className="cuisine">{cuisines.toString()}</h5>
             <h5>{costForTwo}</h5>
             <h5>{sla.slaString}</h5>
         </div>
