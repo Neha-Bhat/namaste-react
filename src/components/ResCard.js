@@ -1,10 +1,11 @@
+import { CDN_URL } from "../utils/constants";
 const ResCard = (props) => {
     const {resData} = props;
     const {cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla} = resData?.info
     console.log(resData)
     return (
         <div className="res-card">
-            <img className="food-image" src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`} />
+            <img className="food-image" src={CDN_URL+cloudinaryImageId} />
             <div className="res-info">
                 <h4>{name}</h4>
                 <span className={avgRating >= 4.5 ? 'rating rating-green' : avgRating >= 4.0 ? 'rating rating-yellow' : 'rating rating-red' }>{avgRating}</span>
