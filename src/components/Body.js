@@ -11,7 +11,6 @@ const Body = () => {
             <button className="filter" onClick={() => {
                 const filteredList = listOfRestaurants.filter((res) => res.info.avgRating >=4.5)
                 setListOfRestaurants(filteredList);
-                console.log(listOfRestaurants)
                 }}>Top Restaurants</button>
             <div className="res-container">
                 {
@@ -20,11 +19,6 @@ const Body = () => {
             </div>
         </div>
     )
-}
-
-function filterRestaurants() {
-    resData = resData.filter(res => res.info.avgRating >=4.5)
-    console.log(resData)
 }
 
 export default Body;
