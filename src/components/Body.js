@@ -1,9 +1,11 @@
 import ResCard from "./ResCard";
 import resData from "../utils/mockData";
 import { useState, useEffect } from "react";
+import { RESTAURANTS_URL } from "../utils/constants";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-    let [listOfRestaurants, setListOfRestaurants] = useState(resData);
+    let [listOfRestaurants, setListOfRestaurants] = useState([]);
     // useEffect will be executed after the component is rendered
     useEffect(() => {
         console.log("useEffect called")
@@ -11,18 +13,20 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.zomato.com/webroutes/search/home"); // add Swiggy API URL here
-        const json = data.json();
+        const data = await fetch(RESTAURANTS_URL); 
+        const json = await data.json();
         console.log(json)
+        setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
-    console.log("body called")
+    console.log("body called", listOfRestaurants)
 
-    return (
+    return listOfRestaurants.length === 0 ? <Shimmer /> :
+    (
         <div className="body">
             {/* <div className="search">Search</div> */}
             <button className="filter" onClick={() => {
-                const filteredList = listOfRestaurants.filter((res) => res.info.avgRating >=4.5)
+                const filteredList = listOfRestaurants.filter((res) => res.info.avgRating >=4.3)
                 setListOfRestaurants(filteredList);
                 }}>Top Restaurants</button>
             <div className="res-container">
