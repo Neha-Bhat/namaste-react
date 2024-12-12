@@ -10,19 +10,16 @@ const Body = () => {
     let [searchText, setSearchText] = useState("");
     // useEffect will be executed after the component is rendered
     useEffect(() => {
-        console.log("useEffect called")
         fetchData();
     }, []);
 
     const fetchData = async () => {
         const data = await fetch(RESTAURANTS_URL); 
         const json = await data.json();
-        console.log(json)
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
-    console.log("body called", listOfRestaurants)
     // Conditional Rendering
     return listOfRestaurants.length === 0 ? <Shimmer /> :
     (
