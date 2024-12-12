@@ -117,3 +117,14 @@
     display: flex;
     justify-content: center;
 }
+
+.filter {
+    display: flex;
+    /* height: 30px; */
+    padding: 5px;
+}
+
+.filter-btn {
+    margin: 10px;
+    cursor: pointer;
+}
