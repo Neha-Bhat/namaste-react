@@ -7,7 +7,7 @@ const ResCard = (props) => {
             <img className="food-image" src={CDN_URL+cloudinaryImageId} />
             <div className="res-info">
                 <h4>{name}</h4>
-                <span className={avgRating >= 4.5 ? 'rating rating-green' : avgRating >= 4.0 ? 'rating rating-yellow' : 'rating rating-red' }>{avgRating}</span>
+                <span className={avgRating >= 4.5 ? 'rating rating-green' : avgRating >= 4.0 ? 'rating rating-yellow' : 'rating rating-red' }>{avgRating ? avgRating : 0}</span>
             </div>
             
             <h5 className="cuisine">{cuisines.toString()}</h5>
