@@ -9,8 +9,12 @@ const Body = () => {
     let [filteredRestaurants, setFilteredRestaurants] = useState([]);
     let [searchText, setSearchText] = useState("");
     // useEffect will be executed after the component is rendered
+    // in this case, it will be called only once after initial render
     useEffect(() => {
-        fetchData();
+        const callFetch = async () => {
+            await fetchData(); // Call the async function
+          };
+          callFetch();
     }, []);
 
     const fetchData = async () => {
