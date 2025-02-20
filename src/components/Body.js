@@ -19,6 +19,7 @@ const Body = () => {
 
     const fetchData = async () => {
         const data = await fetch(RESTAURANTS_URL); 
+        console.log(data)
         const json = await data.json();
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
