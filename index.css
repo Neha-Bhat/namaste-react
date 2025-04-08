@@ -128,3 +128,14 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-message {
+    display: block;
+}
