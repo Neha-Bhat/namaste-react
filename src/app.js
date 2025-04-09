@@ -7,6 +7,7 @@ import About from "./components/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 function truncateText(str, maxLength) {
   return  str.length > maxLength ? str.slice(0, maxLength)+('...') : str
@@ -38,6 +39,10 @@ const appRouter = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact />
+            },
+            {
+                path: '/restaurants/:resId',
+                element: <RestaurantMenu />
             }
         ],
         errorElement: <Error />

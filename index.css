@@ -150,3 +150,15 @@
 .error-message {
     display: block;
 }
+
+.res-spec, .extra-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.extra-info {
+    color: grey;
+    font-weight: bold;
+    margin-right: 10px;
+}
