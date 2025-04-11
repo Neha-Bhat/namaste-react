@@ -3,6 +3,7 @@ import resData from "../utils/mockData";
 import { useState, useEffect } from "react";
 import { RESTAURANTS_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
     let [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -25,7 +26,7 @@ const Body = () => {
     }
 
     // Conditional Rendering
-    return listOfRestaurants.length === 0 ? <Shimmer /> :
+    return listOfRestaurants?.length === 0 ? <Shimmer /> :
     (
         <div className="body">
             <div className="filter">
@@ -45,7 +46,7 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {
-                    filteredRestaurants.map(restaurant => <ResCard key={restaurant.info.id} resData={restaurant}/>)
+                    filteredRestaurants.map(restaurant => <Link to={"restaurants/" + restaurant.info.id} key={restaurant.info.id}><ResCard resData={restaurant}/></Link>)
                 }
             </div>
         </div>
