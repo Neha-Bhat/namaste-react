@@ -51,7 +51,7 @@ const RestaurantMenu = () => {
             <div className="menu-of-res">
                 <div className="top-picks">
                     <ul>
-                        {itemCards.map(item => (<li key={item.card.info.id}>{item.card.info.name} - Rs. {item.card.info.price/100}</li>))}
+                        {itemCards.map(item => (<li key={item.card.info.id} className="item-info">{item.card.info.name} - Rs. {item.card.info.price ? item.card.info.price/100 : item.card.info.defaultPrice/100}</li>))}
                     </ul>
                 </div>
             </div>

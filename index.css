@@ -162,3 +162,12 @@
     font-weight: bold;
     margin-right: 10px;
 }
+
+.item-info {
+    text-decoration: none;
+}
+
+.user {
+    padding: 10px;
+    border: 1px solid black;
+}
