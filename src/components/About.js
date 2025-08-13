@@ -15,7 +15,7 @@ class About extends React.Component {
             <h1>Namaste Cafe</h1>
             {/* <User name="Neha (functional component)" location="Bengaluru Function" /> */}
             <UserClass name="Neha (class based component)" location="Bangalore Class" />
-            <UserClass name="Varadha (class based component)" location="Bangalore Class" />
+            {/* <UserClass name="Varadha (class based component)" location="Bangalore Class" /> */}
         </div>
     )
     }
