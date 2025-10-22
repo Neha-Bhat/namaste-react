@@ -17,4 +17,15 @@ const ResCard = (props) => {
     )
 }
 
+export const PromotedCard = (ResCard) => {
+    return (resData) => {
+        return (
+            <div>
+            <label className="absolute bg-gray-800 text-white m-2 p-2 rounded-md">Promoted</label>
+            <ResCard {...resData} />
+        </div>
+        )
+    }
+}
+
 export default ResCard;

@@ -1,15 +1,18 @@
-import ResCard from "./ResCard";
+import ResCard, {PromotedCard} from "./ResCard";
 import resData from "../utils/mockData";
 import { useState, useEffect } from "react";
 import { RESTAURANTS_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { PromotedCard } from "./ResCard";
 
 const Body = () => {
     let [listOfRestaurants, setListOfRestaurants] = useState([]);
     let [filteredRestaurants, setFilteredRestaurants] = useState([]);
     let [searchText, setSearchText] = useState("");
+    let [promoted, setPromoted] = useState(false);
+    let PromotedRes = PromotedCard(ResCard);
     // useEffect will be executed after the component is rendered
     // in this case, it will be called only once after initial render
     useEffect(() => {
@@ -22,6 +25,7 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch(RESTAURANTS_URL); 
         const json = await data.json();
+        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.promoted = true;
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
@@ -52,7 +56,9 @@ const Body = () => {
             </div>
             <div className="flex flex-wrap items-center justify-center">
                 {
-                    filteredRestaurants.map(restaurant => <Link to={"restaurants/" + restaurant.info.id} key={restaurant.info.id}><ResCard resData={restaurant}/></Link>)
+                    filteredRestaurants.map(restaurant => <Link to={"restaurants/" + restaurant.info.id} key={restaurant.info.id}>
+                        {restaurant.info.promoted ? <PromotedRes resData={restaurant} /> : <ResCard resData={restaurant}/>}
+                    </Link>)
                 }
             </div>
         </div>
