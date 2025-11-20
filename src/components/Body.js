@@ -24,10 +24,11 @@ const Body = () => {
 
     const fetchData = async () => {
         const data = await fetch(RESTAURANTS_URL); 
+        console.log(data)
         const json = await data.json();
-        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.promoted = true;
-        setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants[0].info.promoted = true;
+        setListOfRestaurants(json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredRestaurants(json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     const isOnline = useOnlineStatus();
@@ -57,6 +58,7 @@ const Body = () => {
             <div className="flex flex-wrap items-center justify-center">
                 {
                     filteredRestaurants.map(restaurant => <Link to={"restaurants/" + restaurant.info.id} key={restaurant.info.id}>
+                        {/* <ResCard resData={restaurant}/> */}
                         {restaurant.info.promoted ? <PromotedRes resData={restaurant} /> : <ResCard resData={restaurant}/>}
                     </Link>)
                 }
