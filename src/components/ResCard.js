@@ -6,7 +6,7 @@ const ResCard = (props) => {
     const {cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla} = resData?.info
     return (
         <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 shadow-xl hover:bg-gray-200">
-            <img className="rounded-lg" src={Math.random() < 0.5 ? image1 : image2} />
+            <img className="rounded-lg" src={CDN_URL+cloudinaryImageId} />
             <div className="res-info">
                 <h4 className="font-bold py-2">{name}</h4>
                 <span className={avgRating >= 4.5 ? 'rating rating-green' : avgRating >= 4.0 ? 'rating rating-yellow' : 'rating rating-red' }>{avgRating ? avgRating : 0}</span>
