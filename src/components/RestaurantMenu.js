@@ -1,6 +1,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
 
@@ -16,6 +17,7 @@ const RestaurantMenu = () => {
     }
     const {itemCards} = found?.card?.card || []
     const {name, costForTwoMessage, avgRatingString, cuisines, locality, totalRatingsString} = info
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
     return resInfo === null ? ( <Shimmer /> ) : (
         <div className="p-5 m-auto flex flex-col items-center justify-center w-full border-2 border-gray-300">
             <div className="p-2 flex w-1/2 justify-between gap-4 border-2 border-gray-100 rounded-lg">
@@ -34,13 +36,20 @@ const RestaurantMenu = () => {
                     <span className="">{costForTwoMessage}</span>
                 </div>
             </div>
-            <div className="menu-of-res">
+            {/* <div className="menu-of-res">
                 <div className="top-picks">
                     <ul>
                         {itemCards?.map(item => (<li key={item.card.info.id} className="p-1">{item.card.info.name} - Rs. {item.card.info.price ? item.card.info.price/100 : item.card.info.defaultPrice/100}</li>))}
                     </ul>
                 </div>
-            </div>
+            </div> */}
+
+            {/* categories accordion */}
+            {
+                categories?.map(category => {
+                    return (<RestaurantCategory key={category?.card?.card?.title} cardData={category?.card?.card} />)
+                })    
+            }
         </div>
     )
 }
