@@ -7,6 +7,8 @@ import About from "./components/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import RestaurantMenu from "./components/RestaurantMenu";
 
 function truncateText(str, maxLength) {
@@ -17,11 +19,13 @@ const RestaurantMenu = lazy(() => import("./components/RestaurantMenu")); //lazy
 
 const AppLayout = () => {
     return (
-        <div className="app">
-            <Header />
-            <Outlet />
-            {/* <Footer /> */}
-        </div>
+        <Provider store={appStore}>
+            <div className="app">
+                <Header />
+                <Outlet />
+                {/* <Footer /> */}
+            </div>
+        </Provider>
     )
 }
 
